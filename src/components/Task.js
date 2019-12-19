@@ -28,7 +28,7 @@ class Task extends Component{
 }
 
 Task.propTypes = {
-    task: PropTypes.array.isRequired
+    task: PropTypes.object.isRequired
 }
 
 const btnDelete = {

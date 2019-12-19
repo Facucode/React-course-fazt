@@ -10,6 +10,7 @@ export default class TaskForm extends Component{
 
     //puede tener cualquier nombre, no usa parentesis 'e' porque es un solo parametro
     onSubmit = e =>{
+        this.props.addTask(this.state.title,this.state.description)
         e.preventDefault()
     }
 

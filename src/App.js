@@ -13,11 +13,23 @@ class App extends Component{ //Ya importa component arriba
 state={
   tasks: tasks
 }
+
+addTask=(title, description)=>{
+  const newTask = {
+    title: title,
+    description: description,
+    id: this.state.tasks.length
+  }
+  this.setState({
+    tasks: [...this.state.tasks, newTask]
+  })
+  
+}
 //iterar array de tareas con map
 // pasar las props 'tasks'
   render(){
     return <div>
-      <TaskForm/>
+      <TaskForm addTask={this.addTask}/>
      <Tasks tasks={this.state.tasks}/>
     </div>
   }
