@@ -25,12 +25,28 @@ addTask=(title, description)=>{
   })
   
 }
+// crea una nueva lista sin el ID que coincide con el de la funcion
+deleteTask = (id) => {
+const newTasks = this.state.tasks.filter(task => task.id !==id)
+this.setState({tasks: newTasks})
+}
+
+checkDone= id =>{
+  const newTasks = this.state.tasks.map(task => {
+    if (task.id === id){
+      task.done=!task.done
+    }
+    return task
+  })
+this.setState({tasks: newTasks})
+}
+
 //iterar array de tareas con map
 // pasar las props 'tasks'
   render(){
     return <div>
       <TaskForm addTask={this.addTask}/>
-     <Tasks tasks={this.state.tasks}/>
+     <Tasks tasks={this.state.tasks} deleteTask={this.deleteTask} checkDone={this.checkDone}/>
     </div>
   }
 
